@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0" />
+        <title>MMRPG Powers And Traits</title>
+        <link
+            rel="stylesheet"
+            href="styles.css" />
+    </head>
+    <body>
+        <div class="container">
+            <!-- Header with hero name and buttons -->
+            <header class="hero-controls">
+                <input
+                    type="text"
+                    id="heroName"
+                    placeholder="Hero Name" />
+                <button id="newBtn">New</button>
+                <button id="openBtn">Open</button>
+                <button id="saveBtn">Save</button>
+            </header>
+
+            <main>
+                <!-- Left panel -->
+                <div class="panel left-panel">
+                    <h2>Power Sets</h2>
+                    <select id="powerSetSelect">
+                        <option value="">All Power Sets</option>
+                    </select>
+
+                    <h2>Search Powers</h2>
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search..." />
+                </div>
+
+                <!-- Middle panel -->
+                <div class="panel middle-panel">
+                    <div class="powers-section">
+                        <h2>Powers</h2>
+                        <div
+                            id="powersList"
+                            class="list"></div>
+                    </div>
+
+                    <div class="traits-section">
+                        <h2>Traits</h2>
+                        <div
+                            id="traitsList"
+                            class="list"></div>
+                    </div>
+                </div>
+
+                <!-- Right panel -->
+                <div class="panel right-panel">
+                    <div class="details-section">
+                        <h2>Details</h2>
+                        <div id="detailsContent"></div>
+                    </div>
+
+                    <div class="selected-section">
+                        <h2>Selected Powers</h2>
+                        <div
+                            id="selectedPowers"
+                            class="list"></div>
+
+                        <h2>Selected Traits</h2>
+                        <div
+                            id="selectedTraits"
+                            class="list"></div>
+
+                        <button id="exportBtn">Export to PDF</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Add jsPDF -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script>
+            window.jsPDF = window.jspdf.jsPDF;
+        </script>
+        <script src="obfuscatedMARVEL.js"></script>
+        <script>
+            document.addEventListener("contextmenu", function (event) {
+                event.preventDefault(); // Disables right-click
+            });
+
+            document.onkeydown = function (e) {
+                // Disable F12
+                if (e.keyCode == 123) {
+                    return false;
+                }
+                // Disable Ctrl+Shift+I (DevTools)
+                if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+                    return false;
+                }
+                // Disable Ctrl+U (View Source)
+                if (e.ctrlKey && e.keyCode == 85) {
+                    return false;
+                }
+            };
+        </script>
+    </body>
+</html>
